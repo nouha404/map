@@ -1,0 +1,18 @@
+path {
+  stroke: white;
+  fill: url(#gradient-svg);
+  cursor: pointer;
+
+}
+path:hover {
+  fill: #4B7417;
+  transition: fill 0.2s;
+}
+ul li {
+  padding: 10px;
+}
+
+ul li a:hover {
+  text-decoration: underline dotted;
+
+}
