@@ -33,11 +33,13 @@ export class DatabaseServiceImpl {
           diplome: row["s15. Diplôme"]
         }));
 
-        /*const filteredData = departement ? datas.filter((data) => {
+        const filteredData = departement ? datas.filter((data) => {
             return data.departement // ?.trim() === departement.trim();
           })
           : datas;
-        */
+        console.log(filteredData)
+        return filteredData
+        /*
         const filteredData = datas.filter(data =>
           (data.vague === 'Vague 01' || data.vague === 'Vague 02') &&
           (data.age === '25-34 ans' || data.age === '35-49 ans') &&
@@ -45,10 +47,9 @@ export class DatabaseServiceImpl {
           (!departement || data.departement === departement )
         );
 
-        // les doublons par tranches
         const uniqueData = Array.from(
           filteredData.reduce((map, item) => {
-            const key = `${item.genre}-${item.age}`;
+            const key = `${item.gen/*re}-${item.age}`;
             if (!map.has(key)) {
               map.set(key, item); // Ajoute l'élément s'il n'existe pas déjà
             }
@@ -56,7 +57,7 @@ export class DatabaseServiceImpl {
           }, new Map()).values() // Récupère les valeurs uniques
         );
         return uniqueData;
-
+         */
       })
     );
   }
