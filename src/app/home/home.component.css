@@ -16,3 +16,20 @@ ul li a:hover {
   text-decoration: underline dotted;
 
 }
+
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#tooltip:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+}

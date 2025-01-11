@@ -15,7 +15,7 @@ export class DatabaseServiceImpl {
 
 
   findAll(departement?: string) {
-    //return this.http.get(this.data);
+
 
     return this.http.get(this.data, { responseType: 'text' }).pipe(
       map((csvData: string) => {
@@ -39,25 +39,6 @@ export class DatabaseServiceImpl {
           : datas;
         console.log(filteredData)
         return filteredData
-        /*
-        const filteredData = datas.filter(data =>
-          (data.vague === 'Vague 01' || data.vague === 'Vague 02') &&
-          (data.age === '25-34 ans' || data.age === '35-49 ans') &&
-          (data.genre === 'Un homme' || data.genre === 'Une femme') &&
-          (!departement || data.departement === departement )
-        );
-
-        const uniqueData = Array.from(
-          filteredData.reduce((map, item) => {
-            const key = `${item.gen/*re}-${item.age}`;
-            if (!map.has(key)) {
-              map.set(key, item); // Ajoute l'élément s'il n'existe pas déjà
-            }
-            return map;
-          }, new Map()).values() // Récupère les valeurs uniques
-        );
-        return uniqueData;
-         */
       })
     );
   }

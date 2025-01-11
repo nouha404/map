@@ -8,7 +8,7 @@
 
    Colonnes : S1. genre, S2. âge, Vague
    Analyse possible :
-   Comparer les proportions de genres par tranche d'âge dans chaque vague.
+   Comparer les proportions de genres< par tranche d'âge dans chaque vague.
    Visualiser les évolutions au fil des vagues.
    Répartition par département.
    Graphique recommandé :

@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   allData: DataModel[] = [];
   filterDepartement : string = ''
   isDetailVisible: boolean = false;
+  hoveredDepartement: string = '';
 
   ngOnInit(): void {
     this.loadDepartements();
@@ -181,7 +182,8 @@ export class HomeComponent implements OnInit {
       .style("font-size", "12px");
   }
   createCirculaireChart(): void {
-    const margin = { top: 20, right: 150, bottom: 40, left: 50 };
+    const margin = { top: 20, right: 240, bottom: 40, left: 75 };
+    //const margin = { top: 20, right: 150, bottom: 40, left: 70 };
     const width = 500 - margin.left - margin.right;
     const height = 300 - margin.top - margin.bottom;
 
@@ -262,7 +264,7 @@ export class HomeComponent implements OnInit {
       .attr("dominant-baseline", "middle")
       .text(d => d.count)
       .style("fill", "#FFF")
-      .style("font-size", "12px");
+      .style("font-size", "10px");
 
     const legend = svg.append("g")
       .attr("transform", `translate(${width + 20}, 0)`);
@@ -402,6 +404,26 @@ export class HomeComponent implements OnInit {
       .text(d => d);
   }
 
+  //
+  hoverDepartment(event: MouseEvent): void {
+    const target = event.target as SVGPathElement;
+    const departementName = target.getAttribute('title');
+    const tooltip = document.getElementById('tooltip');
+
+    if (departementName && tooltip) {
+      this.hoveredDepartement = departementName;
+      tooltip.style.left = `${event.pageX + 10}px`;
+      tooltip.style.top = `${event.pageY + 10}px`;
+      tooltip.classList.remove('hidden');
+    }
+  }
+  clearHover(): void {
+    const tooltip = document.getElementById('tooltip');
+    if (tooltip) {
+      tooltip.classList.add('hidden');
+    }
+    this.hoveredDepartement = '';
+  }
 
 
 

@@ -6,8 +6,14 @@
     </h1>
 
   <div class="image w-2/3 ">
+
+    <div id="tooltip" class="absolute bg-gray-800 text-white p-2 rounded hidden">
+      {{ hoveredDepartement }}
+    </div>
     <svg #svgMap
          (click)="clickOnMap($event)"
+         (mouseover)="hoverDepartment($event)"
+         (mouseleave)="clearHover()"
       xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1000 1000">
       <defs>
         <linearGradient id="gradient-svg" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -116,9 +122,9 @@
     </svg>
 
   </div>
-  <div class="  list max-h-screen overflow-y-auto  border-l border-b border-white border-dashed" >
+  <div class="  list max-h-screen overflow-y-auto  border-l border-b border-white border-dashed " >
 
-    <ul class="">
+    <ul class="border border-red-300">
       <li *ngFor="let departement of departements">
         <a (click)="showDetails(departement)" class="cursor-pointer hover:text-white hover:text-2xl ">{{ departement }}</a>
       </li>
@@ -128,29 +134,17 @@
     </ul>
   </div>
 
-  <div class="flex-row justify-around">
+  <div class="flex-row justify-around pl-4">
     <h2>Departement : {{filterDepartement}}</h2>
     <svg #svgChart width="500" height="300"></svg>
-    <svg #svgCirculaire width="500" height="300"></svg>
+    <svg #svgCirculaire width="600" height="300" ></svg>
     <svg #svgBar width="500" height="300"></svg>
   </div>
-  <!-- <div class="details" *ngIf="allData.length>0">
-     <div *ngFor="let item of allData" class="data-item">
-       <p>Age : {{item.age}}</p>
-
-       <p>{{item.vague}}</p>
-       <p>Genre : {{item.genre}}</p>
-       <p>Departement : {{item.departement}}</p>
-       <p>Diplome : {{item.diplome}}</p>
-       <p>Mode transport : {{item.modeTransport}}</p>
-       <p>solution cli : {{item.solutionAboutClimat}}</p>
-       <p>statut {{item.statut}}</p>
-       <p>Sympatisant ? {{item.sympathieMouvEcolo}}</p>
-       <p>Type Habitat : {{item.typeHabitat}}</p>
-
-      </div>
-
-   </div>-->
-
 
 </section>
+<div class="text-center  h-full  flex items-end justify-center
+        bg-black">
+  <p class="text-white font-robotoMonoL text-3xl py-4">&#64; 2025 | © Copyright Nouha404. Tous droits réservés | <a href="./assets/mentions-legales.pdf" class="underline text-primary-CTA selection:text-white"> Mentions légales </a>|
+
+  </p>
+</div>
